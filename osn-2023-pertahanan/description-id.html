@@ -1,0 +1,133 @@
+<!-- Title: Pertahanan Bogor -->
+
+<h3>Deskripsi</h3>
+
+<p>
+  Bogor sedang diserang monster jahat.
+  Pak Dengklek sedang berada di kapal pertahanan yang terletak di sungai Cisadane.
+  Sungai Cisadane dibagi menjadi $10^9$ bagian yang dinomori dari $1$ sampai $10^9$.
+</p>
+<p>
+  Pada <b>awal</b> hari ke-$1$, kapal Pak Dengklek berada pada bagian ke-$1$ dari sungai.
+  Pada <b>akhir</b> dari setiap hari, Pak Dengklek harus melakukan <b>salah satu</b> dari dua hal berikut <b>tepat satu kali</b>:
+</p>
+<ul>
+  <li>Mengikuti arus sungai untuk menggerakkan kapalnya dari bagian ke-$x$ ke bagian ke-($x + 1$) dari sungai, dengan $x$ melambangkan nomor bagian tempat kapal berada saat ini.</li>
+  <li>Menggunakan teknologi ajaib untuk membuat kapalnya langsung berada di bagian ke-$1$ dari sungai.</li>
+</ul>
+<p>
+  Monster akan menyerang sungai selama $N$ hari dari hari ke-$1$ sampai hari ke-$N$.
+  Pada <b>awal</b> dari masing-masing hari, monster akan menyerang seluruh bagian sungai kecuali satu bagian.
+  Formalnya, untuk setiap $1 \leq i \leq N$, bagian ke-$A_i$ dari sungai adalah zona aman pada hari ke-$i$.
+  Ini berarti, kapal Pak Dengklek <b>tidak</b> akan terkena serangan pada hari ke-$i$ jika dan hanya jika kapalnya berada pada bagian ke-$A_i$ sungai pada <b>awal</b> hari itu.
+</p>
+<p>
+  Berapa minimum banyaknya serangan yang mengenai kapal Pak Dengklek jika Pak Dengklek menggerakkan kapalnya secara optimal?
+</p>
+
+<h3>Batasan</h3>
+
+<ul>
+  <li>$1 \leq N \leq 200\,000$</li>
+  <li>$1 \leq A_i \leq N$</li>
+</ul>
+
+<h3>Subsoal</h3>
+
+<ol>
+  <li>
+    &nbsp;&nbsp;(5 poin) Hanya berisi kasus uji berikut:<br/>
+    $N = 10$;<br/>
+    $A = [2, 1, 2, 3, 2, 3, 4, 3, 4, 5]$
+  </li>
+  <li>&nbsp;&nbsp;(8 poin) $N \leq 8$</li>
+  <li>&nbsp;&nbsp;(7 poin) $N \leq 17$</li>
+  <li>&nbsp;&nbsp;(7 poin) $A_1 = A_2 = \ldots = A_N$</li>
+  <li>(11 poin) $A_i \leq 2$</li>
+  <li>(21 poin) $N \leq 200$</li>
+  <li>(11 poin) $N \leq 3000$</li>
+  <li>(10 poin) $A_i \leq 200$</li>
+  <li>(20 poin) Tidak ada batasan tambahan.</li>
+</ol>
+
+<h3>Masukan</h3>
+
+<p>
+  Masukan diberikan dalam format berikut:
+</p>
+<pre>
+N
+A<sub>1</sub> A<sub>2</sub> &hellip; A<sub>N</sub>
+</pre>
+
+<h3>Keluaran</h3>
+
+<p>
+  Keluarkan sebuah baris berisi sebuah bilangan bulat yang menyatakan minimum banyaknya serangan yang mengenai kapal Pak Dengklek.
+</p>
+
+<h3>Contoh Masukan</h3>
+
+<pre>
+7
+2 2 3 2 1 4 2
+</pre>
+
+<h3>Contoh Keluaran</h3>
+
+<pre>
+3
+</pre>
+
+<h3>Penjelasan Contoh</h3>
+
+<p>
+  Salah satu strategi yang optimal adalah sebagai berikut:
+</p>
+<ol>
+  <li>
+    Awal hari ke-$1$, kapalnya di bagian ke-$1$.
+    Zona amannya di bagian ke-$2$, maka kapalnya terkena serangan.
+    Lalu, kapalnya mengikuti arus dan bergerak ke bagian ke-$2$.
+  </li>
+  <li>
+    Awal hari ke-$2$, kapalnya di bagian ke-$2$.
+    Zona amannya di bagian ke-$2$, maka kapalnya tidak terkena serangan.
+    Lalu, kapalnya mengikuti arus dan bergerak ke bagian ke-$3$.
+  </li>
+  <li>
+    Awal hari ke-$3$, kapalnya di bagian ke-$3$.
+    Zona amannya di bagian ke-$3$, maka kapalnya tidak terkena serangan.
+    Lalu, kapalnya mengikuti arus dan bergerak ke bagian ke-$4$.
+  </li>
+  <li>
+    Awal hari ke-$4$, kapalnya di bagian ke-$4$.
+    Zona amannya di bagian ke-$2$, maka kapalnya terkena serangan.
+    Lalu, kapalnya menggunakan teknologi ajaib dan langsung berada di bagian ke-$1$.
+  </li>
+  <li>
+    Awal hari ke-$5$, kapalnya di bagian ke-$1$.
+    Zona amannya di bagian ke-$1$, maka kapalnya tidak terkena serangan.
+    Lalu, kapalnya menggunakan teknologi ajaib dan langsung berada di bagian ke-$1$.
+  </li>
+  <li>
+    Awal hari ke-$6$, kapalnya di bagian ke-$1$.
+    Zona amannya di bagian ke-$4$, maka kapalnya terkena serangan.
+    Lalu, kapalnya mengikuti arus dan bergerak ke bagian ke-$2$.
+  </li>
+  <li>
+    Awal hari ke-$7$, kapalnya di bagian ke-$2$.
+    Zona amannya di bagian ke-$2$, maka kapalnya tidak terkena serangan.
+    Lalu, kapalnya mengikuti arus dan bergerak ke bagian ke-$3$.
+  </li>
+</ol>
+<p>
+  Berikut adalah ilustrasi untuk strategi di atas.
+</p>
+<p style="text-align: center;">
+  <img src="render/kapal.jpg" style="width: 500px; border-radius: 20px;">
+</p>
+<p>
+  Jika mengikuti strategi ini, kapal Pak Dengklek akan terkena serangan $3$ kali, yaitu pada hari ke-$1$, ke-$4$, dan ke-$6$.
+  Bisa dibuktikan bahwa tidak ada strategi yang membuat kapalnya terkena serangan kurang dari $3$ kali.
+</p>

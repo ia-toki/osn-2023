@@ -1,0 +1,133 @@
+<!-- Title: Bogor Defence -->
+
+<h3>Description</h3>
+
+<p>
+  Bogor is being attacked by an evil monster.
+  Pak Dengklek is currently in a defence ship located on the Cisadane River.
+  The Cisadane River is divided into $10^9$ sections numbered from $1$ to $10^9$.
+</p>
+<p>
+  At the <b>beginning</b> of the $1$-st day, Pak Dengklek's ship is located on the $1$-st section of the river.
+  At the <b>end</b> of each day, Pak Dengklek must do <b>one</b> of the two following things <b>exactly once</b>:
+</p>
+<ul>
+  <li>Follow the river current to move the ship from the $x$-th section to the ($x + 1$)-th section of the river, where $x$ denotes the section number where the ship is currently located.</li>
+  <li>Use magical technology to make the ship be located immediately on the $1$-st section of the river.</li>
+</ul>
+<p>
+  The monster will attack the river for $N$ days from the $1$-st day to the $N$-th day.
+  At the <b>beginning</b> of each day, the monster will attack all sections of the river except for one section.
+  Formally, for each $1 \leq i \leq N$, the $A_i$-th section of the river is the safe zone of the $i$-th day.
+  This means, Pak Dengklek's ship will <b>not</b> get attacked at the $i$-th day if and only if the ship is located on the $A_i$-th section of the river at the <b>beginning</b> of that day.
+</p>
+<p>
+  What is the minimum number of attacks that hit Pak Dengklek's ship if Pak Dengklek moves his ship optimally?
+</p>
+
+<h3>Constraints</h3>
+
+<ul>
+  <li>$1 \leq N \leq 200\,000$</li>
+  <li>$1 \leq A_i \leq N$</li>
+</ul>
+
+<h3>Subtasks</h3>
+
+<ol>
+  <li>
+    &nbsp;&nbsp;(5 points) Contains only the following test case:<br/>
+    $N = 10$;<br/>
+    $A = [2, 1, 2, 3, 2, 3, 4, 3, 4, 5]$
+  </li>
+  <li>&nbsp;&nbsp;(8 points) $N \leq 8$</li>
+  <li>&nbsp;&nbsp;(7 points) $N \leq 17$</li>
+  <li>&nbsp;&nbsp;(7 points) $A_1 = A_2 = \ldots = A_N$</li>
+  <li>(11 points) $A_i \leq 2$</li>
+  <li>(21 points) $N \leq 200$</li>
+  <li>(11 points) $N \leq 3000$</li>
+  <li>(10 points) $A_i \leq 200$</li>
+  <li>(20 points) No additional constraints.</li>
+</ol>
+
+<h3>Input</h3>
+
+<p>
+  The input is given with the following format:
+</p>
+<pre>
+N
+A<sub>1</sub> A<sub>2</sub> &hellip; A<sub>N</sub>
+</pre>
+
+<h3>Output</h3>
+
+<p>
+  Output a single line containing an integer representing the minimum number of attacks that hit Pak Dengklek's ship.
+</p>
+
+<h3>Sample Input</h3>
+
+<pre>
+7
+2 2 3 2 1 4 2
+</pre>
+
+<h3>Sample Output</h3>
+
+<pre>
+3
+</pre>
+
+<h3>Explanation of Sample</h3>
+
+<p>
+  One of the optimal strategies is as follows:
+</p>
+<ol>
+  <li>
+    At the beginning of the $1$-st day, the ship is on the $1$-st section.
+    The safe zone is at the $2$-nd section, so the ship gets attacked.
+    Then, the ship follows the current to move to the $2$-nd section.
+  </li>
+  <li>
+    At the beginning of the $2$-nd day, the ship is on the $2$-nd section.
+    The safe zone is at the $2$-nd section, so the ship does not get attacked.
+    Then, the ship follows the current to move to the $3$-rd section.
+  </li>
+  <li>
+    At the beginning of the $3$-rd day, the ship is on the $3$-rd section.
+    The safe zone is at the $3$-rd section, so the ship does not get attacked.
+    Then, the ship follows the current to move to the $4$-th section.
+  </li>
+  <li>
+    At the beginning of the $4$-th day, the ship is on the $4$-th section.
+    The safe zone is at the $2$-nd section, so the ship gets attacked.
+    Then, the ship uses magical technology to be located immediately on the $1$-st section.
+  </li>
+  <li>
+    At the beginning of the $5$-th day, the ship is on the $1$-st section.
+    The safe zone is at the $1$-st section, so the ship does not get attacked.
+    Then, the ship uses magical technology to be located immediately on the $1$-st section.
+  </li>
+  <li>
+    At the beginning of the $6$-th day, the ship is on the $1$-st section.
+    The safe zone is at the $4$-th section, so the ship gets attacked.
+    Then, the ship follows the current to move to the $2$-nd section.
+  </li>
+  <li>
+    At the beginning of the $7$-th day, the ship is on the $2$-nd section.
+    The safe zone is at the $2$-nd section, so the ship does not get attacked.
+    Then, the ship follows the current to move to the $3$-rd section.
+  </li>
+</ol>
+<p>
+  The following is an illustration for the strategy above.
+</p>
+<p style="text-align: center;">
+  <img src="render/kapal-en.jpg" style="width: 500px; border-radius: 20px;">
+</p>
+<p>
+  Following this strategy, Pak Dengklek's ship will get attacked $3$ times, at the $1$-st, $4$-th, and $6$-th day.
+  It can be proven that there is no strategy where the ship gets attacked fewer than $3$ times.
+</p>

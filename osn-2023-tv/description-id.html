@@ -1,0 +1,130 @@
+<!-- Title: Kelap-Kelip Televisi -->
+
+<h3>Deskripsi</h3>
+
+<p>
+  Pada bulan Juni, Pak Dengklek dan keluarganya berlibur ke kota Bogor.
+  Di salah satu hari liburannya, mereka mengunjungi mal Binary Square dan menemukan sebuah atraksi televisi yang menarik perhatiannya.
+</p>
+<p>
+  Atraksinya ditampilkan pada sekumpulan televisi yang tersusun membentuk persegi berukuran $N \times N$ dengan $N$ baris (dinomori dari $1$ sampai $N$) dan $N$ kolom (dinomori dari $1$ sampai $N$).
+  Televisi yang terletak pada baris ke-$r$ dan kolom ke-$c$ dinotasikan sebagai televisi $(r, c)$.
+  Masing-masing televisi hanya bisa dalam keadaan menyala atau padam.
+  Awalnya, setiap televisi dalam keadaan padam.
+</p>
+<p>
+  Terdapat $P$ perubahan yang akan terjadi.
+  Perubahan ke-$i$ berupa dua bilangan bulat $T_i$ dan $W_i$.
+</p>
+<ul>
+  <li>Apabila $T_i = 1$, maka semua televisi $(r, c)$ yang memenuhi $r \leq W_i$ dan $c \leq W_i$ berubah status.</li>
+  <li>Apabila $T_i = 2$, maka semua televisi $(r, c)$ yang memenuhi $r \geq W_i$ dan $c \geq W_i$ berubah status.</li>
+</ul>
+<p>
+  Apabila televisi yang menyala berubah status, maka televisi itu menjadi padam.
+  Sebaliknya, apabila televisi yang padam berubah status, maka televisi itu menjadi menyala.
+</p>
+<p>
+  Setelah semua $P$ perubahan terjadi, Pak Dengklek mempunyai $Q$ pertanyaan.
+  Pertanyaan ke-$j$ menanyakan apakah televisi $(X_j, Y_j)$ dalam keadaan menyala atau padam.
+  Bantulah Pak Dengklek menjawab semua pertanyaannya!
+</p>
+
+<h3>Batasan</h3>
+
+<ul>
+  <li>$1 \leq N \leq 10^9$</li>
+  <li>$1 \leq P \leq 200\,000$</li>
+  <li>$T_i = 1$ atau $T_i = 2$</li>
+  <li>$1 \leq W_i \leq N$</li>
+  <li>$1 \leq Q \leq 200\,000$</li>
+  <li>$1 \leq X_j, Y_j \leq N$</li>
+</ul>
+
+<h3>Subsoal</h3>
+
+<ol>
+  <li>
+    &nbsp;&nbsp;(6 poin) Hanya berisi kasus uji berikut:<br/>
+    $N = 7$; $P = 4$;<br/>
+    $T = [2, 1, 1, 2]$;<br/>
+    $W = [4, 6, 4, 3]$;<br/>
+    $Q = 5$;<br/>
+    $X = [2, 3, 6, 4, 3]$;<br/>
+    $Y = [6, 2, 3, 4, 7]$
+  </li>
+  <li>&nbsp;&nbsp;(5 poin) Jika $T_i = 1$, maka $W_i = N$; jika $T_i = 2$, maka $W_i = 1$.</li>
+  <li>&nbsp;&nbsp;(8 poin) $N, P, Q \leq 200$</li>
+  <li>(10 poin) $N, P, Q \leq 2000$</li>
+  <li>&nbsp;&nbsp;(7 poin) $P = 1$</li>
+  <li>(11 poin) $P = 2$; $T_1 = 1$; $T_2 = 2$; $W_1 = W_2$</li>
+  <li>(15 poin) $N \leq 200\ 000$; $T_i = 1$</li>
+  <li>(13 poin) $N \leq 200\ 000$; $X_j = Y_j$</li>
+  <li>(10 poin) $N \leq 200\ 000$</li>
+  <li>(15 poin) Tidak ada batasan tambahan.</li>
+</ol>
+
+<h3>Masukan</h3>
+
+<p>
+  Masukan diberikan dalam format berikut:
+</p>
+
+<pre>
+N P
+T<sub>1</sub> W<sub>1</sub>
+T<sub>2</sub> W<sub>2</sub>
+⋮
+T<sub>P</sub> W<sub>P</sub>
+Q
+X<sub>1</sub> Y<sub>1</sub>
+X<sub>2</sub> Y<sub>2</sub>
+⋮
+X<sub>Q</sub> Y<sub>Q</sub>
+</pre>
+
+<h3>Keluaran</h3>
+
+<p>
+  Untuk masing-masing pertanyaan, keluarkan sebuah baris berisi <code>0</code> apabila televisi yang ditanyakan dalam keadaan padam, atau <code>1</code> apabila televisi yang ditanyakan dalam keadaan menyala.
+</p>
+
+<h3>Contoh Masukan</h3>
+
+<pre>
+7 5
+1 2
+2 5
+1 1
+1 6
+2 1
+4
+1 1
+6 5
+2 7
+4 3
+</pre>
+
+<h3>Contoh Keluaran</h3>
+
+<pre>
+0
+1
+1
+0
+</pre>
+
+<h3>Penjelasan Contoh</h3>
+
+<p>
+  Berikut adalah ilustrasi untuk urutan perubahan yang terjadi.
+</p>
+<p>
+  <img src="render/tvs.png" style="width: 100%;">
+</p>
+<p>
+  Berikut adalah posisi televisi-televisi yang ditanyakan.
+</p>
+<p>
+  <img src="render/tvquery.png" style="width: 300px;">
+</p>

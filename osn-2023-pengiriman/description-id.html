@@ -1,0 +1,220 @@
+<!-- Title: Pengiriman Satu Hari -->
+
+<h3>Deskripsi</h3>
+
+<p>
+  Kwak, Kwik, dan Kwek sedang liburan ke Puncak, Bogor dan mereka bertemu dengan seekor rusa totol raksasa yang kehilangan sepatunya.
+  Pak Dengklek bisa membuatkannya sepatu, tetapi Pak Dengklek saat ini berada di Jakarta dan tidak bisa menyusul bebek-bebeknya.
+</p>
+<p style="text-align: center;">
+  <img src="render/rusa.jpg" style="width: 400px; border-radius: 20px;">
+</p>
+<p>
+  Setiap <b>pagi hari</b>, Pak Dengklek membuat tepat satu sepatu berukuran tertentu dan langsung mengirimkannya ke Puncak.
+  Naasnya, karena Puncak adalah tujuan wisata yang senantiasa ramai, pengiriman tercepat ke Puncak membutuhkan waktu satu hari, sehingga sepatu yang dikirim baru akan sampai di Puncak pada <b>malam hari esoknya</b>.
+</p>
+<p>
+  Ketika sepatu sampai ke Puncak, bebek-bebek Pak Dengklek akan langsung mengirim pesan daring secara instan kepada Pak Dengklek untuk menyampaikan kondisi sepatu yang baru sampai.
+  Kemungkinan pesannya adalah sebagai berikut:
+</p>
+<ul>
+  <li><code>KEKECILAN</code> &ndash; sepatu berukuran terlalu kecil untuk sang rusa.</li>
+  <li><code>KEBESARAN</code> &ndash; sepatu berukuran terlalu besar untuk sang rusa.</li>
+  <li><code>PAS</code> &ndash; sepatu berukuran pas.</li>
+</ul>
+<p>
+  Diketahui bahwa ukuran sepatu sang rusa adalah suatu bilangan bulat positif yang tidak melebihi $N$.
+  Tentunya, agar tidak sia-sia, setiap sepatu yang Pak Dengklek buat harus berukuran bilangan bulat positif yang tidak melebihi $N$ juga.
+  Sang rusa memberi tahu para bebek bahwa dia memerlukan sepatu dengan ukuran pas paling lambat pada malam hari ke-$T$.
+  Bantulah Pak Dengklek menyusun rencana pembuatan sepatu setiap harinya supaya sang rusa mendapat sepatu berukuran pas dalam batasan waktu yang diinginkan!
+</p>
+
+<h3>Batasan</h3>
+
+<ul>
+  <li>$1 \leq N \leq 10^9$</li>
+</ul>
+
+<h3>Subsoal</h3>
+
+<ol>
+  <li>&nbsp;&nbsp;(6 poin) $N = 5$; $T = 6$</li>
+  <li>&nbsp;&nbsp;(6 poin) $N = 7$; $T = 5$</li>
+  <li>(21 poin) $N = 50$; $T = 9$</li>
+  <li>&nbsp;&nbsp;(9 poin) $N = 350$; $T = 13$</li>
+  <li>(12 poin) $N = 2500$; $T = 17$</li>
+  <li>(20 poin) $N = 300\,000$; $T = 27$</li>
+  <li>(26 poin) $N = 10^9$; $T = 100$</li>
+</ol>  
+
+<h3>Informasi Tipe Soal</h3>
+
+<p>
+  Soal ini bertipe &quot;interaktif&quot;.
+  Pada soal ini, Anda akan berinteraksi dengan program penguji melalui masukan standar (<em>stdin</em>) dan keluaran standar (<em>stdout</em>).
+  Perhatikan interaksi di bawah ini dengan saksama.
+</p>
+
+<h3>Interaksi</h3>
+
+<p>
+  Awalnya, Anda akan diberikan nilai $N$ dan $T$ dalam format berikut:
+</p>
+<pre>
+N T
+</pre>
+<p>
+  Kemudian, paling banyak $T$ kali, Anda bisa menghasilkan keluaran dalam format berikut:
+</p>
+<pre>
+K
+</pre>
+<p>
+  dengan $1 \leq K \leq N$.
+</p>
+<p>
+  Ini berarti, pada pagi hari, Pak Dengklek membuat tepat satu sepatu berukuran $K$ dan langsung mengirimkannya ke Puncak.
+  Tepat setelah masing-masing dari keluaran Anda tersebut (selain keluaran pertama Anda), akan diberikan pesan daring yang dikirim para bebek (dinotasikan dengan $S$) pada malam hari yang sama.
+  Perhatikan bahwa pesan ini menyampaikan kondisi sepatu yang Pak Dengklek buat di <b>pagi hari sebelumnya</b>.
+  String $S$ diberikan dalam format berikut:
+</p>
+<pre>
+S
+</pre>
+<p>
+  Jika mendapatkan pesan <code>PAS</code>, artinya sang rusa sudah mendapatkan sepatu yang pas.
+  Tepat setelah itu terjadi, interaksi program Anda dan program juri harus langsung diberhentikan.
+</p>
+<p>
+  Pada beberapa kasus uji, perilaku <em>grader</em> bersifat adaptif.
+  Ini berarti pada kasus-kasus uji ini, <em>grader</em> tidak memiliki ukuran sepatu yang tetap sebelum interaksi dimulai.
+  Melainkan, jawaban-jawaban yang diberikan <em>grader</em> mungkin bergantung pada pertanyaan-pertanyaan yang ditanyakan solusi Anda.
+  Namun, dijamin bahwa <em>grader</em> menjawab sedemikian sehingga setelah setiap jawaban, ada setidaknya satu ukuran sepatu yang konsisten dengan semua jawaban sejauh ini.
+</p>
+
+<h3>Penilaian</h3>
+
+<p>
+  Anggap $Q$ menyatakan pada malam hari keberapa sang rusa mendapatkan sepatu yang pas.
+  Bisa didapat bahwa nilai $Q$ sama dengan banyaknya keluaran yang Anda hasilkan tepat sebelum mendapatkan pesan <code>PAS</code>.
+</p>
+<p>
+  Jika Anda tidak berhasil membuat sepatu yang pas, menghasilkan keluaran sebanyak lebih dari $T$ kali, atau menghasilkan keluaran dengan format yang salah atau di luar batasan, maka Anda akan mendapatkan &quot;Wrong Answer&quot;.
+  Anda akan dianggap benar jika Anda berhasil mendapatkan pesan <code>PAS</code> dengan memenuhi $Q \leq T$, dan Anda akan mendapatkan nilai penuh atau nilai parsial.
+</p>
+<p>
+  Khusus untuk Subsoal 7, Anda bisa mendapatkan nilai parsial.
+  Rumus yang digunakan untuk menentukan nilainya bergantung pada nilai $Q$.
+  Nilai yang didapatkan untuk Subsoal 7 dihitung berdasarkan tabel berikut:
+</p>
+
+<table border="1">
+  <thead>
+    <th>Kondisi</th>
+    <th>Poin</th>
+  </thead>
+  <tbody style="text-align: center;">
+    <tr>
+      <td style="text-align: left;">$100 < Q$</td>
+      <td>$0$</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;$44 < Q \leq 100$</td>
+      <td>$\left\lfloor \large\frac{2\,250\,000}{Q^3} \right\rfloor$</td>
+    </tr>
+    <tr>
+      <td style="text-align: right;">$Q \leq 44$&nbsp;&nbsp;</td>
+      <td>$26$</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Contoh Interaksi</h3>
+
+<p>
+  Pada contoh berikut, $N = 5$, $T = 6$, dan ukuran sepatu yang pas adalah $4$:
+</p>
+
+<table>
+  <tr>
+    <th>Masukan</th>
+    <th>Keluaran</th>
+    <th>Penjelasan</th>
+  </tr>
+  <tr>
+    <td><pre>5 6</pre></td>
+    <td></td>
+    <td>Ini berarti $N = 5$ dan $T = 6$.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><pre>3</pre></td>
+    <td>Pada pagi hari ke-$1$, Pak Dengklek membuat sepatu berukuran $3$ dan langsung mengirimkannya.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><pre>2</pre></td>
+    <td>Pada pagi hari ke-$2$, Pak Dengklek membuat sepatu berukuran $2$ dan langsung mengirimkannya.</td>
+  </tr>
+  <tr>
+    <td><pre>KEKECILAN</pre></td>
+    <td></td>
+    <td>Sepatu yang dikirim di pagi hari ke-$1$ (yang berukuran $3$) berukuran terlalu kecil.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><pre>5</pre></td>
+    <td>Pada pagi hari ke-$3$, Pak Dengklek membuat sepatu berukuran $5$ dan langsung mengirimkannya.</td>
+  </tr>
+  <tr>
+    <td><pre>KEKECILAN</pre></td>
+    <td></td>
+    <td>Sepatu yang dikirim di pagi hari ke-$2$ (yang berukuran $2$) berukuran terlalu kecil.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><pre>4</pre></td>
+    <td>Pada pagi hari ke-$4$, Pak Dengklek membuat sepatu berukuran $4$ dan langsung mengirimkannya.</td>
+  </tr>
+  <tr>
+    <td><pre>KEBESARAN</pre></td>
+    <td></td>
+    <td>Sepatu yang dikirim di pagi hari ke-$3$ (yang berukuran $5$) berukuran terlalu besar.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><pre>1</pre></td>
+    <td>Pada pagi hari ke-$5$, Pak Dengklek membuat sepatu berukuran $1$ dan langsung mengirimkannya.</td>
+  </tr>
+  <tr>
+    <td><pre>PAS</pre></td>
+    <td></td>
+    <td>Sepatu yang dikirim di pagi hari ke-$4$ (yang berukuran $4$) berukuran pas.</td>
+  </tr>
+  <tr>
+    <td>(selesai)</td>
+    <td>(selesai)</td>
+    <td>Interaksi berakhir dan Anda mendapatkan "Accepted" pada kasus uji ini.</td>
+  </tr>
+</table>
+
+<p>
+  Pada interaksi di atas, bisa dilihat bahwa sang rusa mendapatkan sepatu yang pas pada malam hari ke-$5$.
+  Oleh karena itu, untuk contoh interaksi ini, $Q = 5$, sehingga $Q \leq T$ terpenuhi.
+</p>
+
+<h3>Peringatan</h3>
+
+<p>
+  Selalu lakukan <em>flush</em> setiap kali setelah program Anda mengeluarkan keluaran.
+</p>
+<ul>
+  <li>
+    Untuk <em>library</em> <code>stdio.h</code> (<code>cstdio</code>):
+    <pre>fflush(stdout);</pre>
+  </li>
+  <li>
+    Untuk <em>library</em> <code>iostream</code>:
+    <pre>std::cout << std::flush;</pre>
+  </li>
+</ul>

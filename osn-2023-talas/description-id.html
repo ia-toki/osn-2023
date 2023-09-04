@@ -1,0 +1,178 @@
+<!-- Title: Berbagi Lapis Talas -->
+
+<h3>Deskripsi</h3>
+
+<p>
+  Saat berkunjung ke Taman Safari Bogor, Pak Dengklek menemukan $N$ kelinci abadi asal planet asing yang diberi indeks dari $1$ sampai $N$ dari yang <b>paling tua ke paling muda</b>.
+  Uniknya, spesies kelinci ini berkembang biak tanpa pasangan, sehingga masing-masing dari kelinci ini hanya mempunyai satu induk.
+  Lebih spesifiknya, untuk setiap $2 \leq i \leq N$, kelinci $i$ adalah anak dari kelinci $P_i$, dengan $1 \leq P_i \leq i - 1$.
+</p>
+<p>
+  Pak Dengklek berencana untuk membagi-bagikan makanan khas Bogor, yaitu kue lapis talas, sebagai hadiah kepada kelinci-kelinci tersebut.
+  Pak Dengklek sudah menyiapkan $N$ boks, yang dinomori dari $1$ sampai $N$.
+  Boks ke-$j$ berisi tepat $j$ potong lapis talas.
+  Awalnya, Pak Dengklek membagikan $N$ boks tersebut sehingga setiap kelinci mendapat satu boks.
+</p>
+<p>
+  Pak Dengklek tahu bahwa spesies kelinci ini pintar, suka berbagi, dan sangat menyayangi keturunan-keturunannya.
+  Seekor kelinci dikatakan <b>sedih</b> jika dan hanya jika ada setidaknya satu anaknya yang memiliki boks yang berisi lebih sedikit lapis talas daripada kelinci tersebut.
+</p>
+<p>
+  Setiap detiknya, jika ada setidaknya satu kelinci yang sedih, maka di antara kelinci-kelinci yang sedih, kelinci yang <b>termuda</b> (kelinci dengan <b>indeks terbesar</b>) akan menukarkan boksnya dengan boks anaknya yang berisi lapis talas <b>paling sedikit</b>.
+  Proses penukaran ini dilakukan berulang kali sampai tidak ada kelinci yang sedih.
+</p>
+<p>
+  Tentunya Anda penasaran, apakah memungkinkan bagi Pak Dengklek untuk membagikan $N$ boks tersebut sehingga akan terjadi <b>tepat $K$</b> buah penukaran?
+</p>
+<p>
+  Diberikan bilangan bulat $Q$.
+  Jika $Q = 0$, Anda hanya perlu melaporkan apakah mungkin untuk memenuhi syarat soal.
+  Jika $Q = 1$, Anda juga harus melaporkan salah satu cara pembagian boks yang mungkin.
+</p>
+
+<h3>Batasan</h3>
+
+<ul>
+  <li>$1 \leq N \leq 100\,000$</li>
+  <li>$0 \leq K \leq 10^{18}$</li>
+  <li>$Q = 0$ atau $Q = 1$</li>
+  <li>$1 \leq P_i \leq i - 1$</li>
+</ul>
+
+<h3>Subsoal</h3>
+
+<ol>
+  <li>
+    &nbsp;&nbsp;(7 poin) Hanya berisi kasus uji berikut:<br/>
+    $N = 7$; $K = 7$; $Q = 1$;<br/>
+    Induk dari masing-masing kelinci $2$, $3$, $4$, $5$, $6$, $7$ secara berturut-turut adalah kelinci $1$, $1$, $3$, $2$, $5$, $2$.
+  </li>
+  <li>&nbsp;&nbsp;(7 poin) $K = 0$</li>
+  <li>&nbsp;&nbsp;(6 poin) $N \leq 8$</li>
+  <li>&nbsp;&nbsp;(6 poin) $Q = 0$; $P_i = i - 1$</li>
+  <li>&nbsp;&nbsp;(8 poin) $Q = 0$; terdapat tepat satu indeks $x$ sehingga $P_x &lt; x - 1$, dan $P_i = i - 1$ untuk setiap $i \neq x$.</li>
+  <li>&nbsp;&nbsp;(9 poin) $Q = 0$</li>
+  <li>(11 poin) $K \leq 100\,000$; $P_i = i - 1$</li>
+  <li>(12 poin) $P_i = i - 1$</li>
+  <li>(17 poin) $K \leq 100\,000$</li>
+  <li>(17 poin) Tidak ada batasan tambahan.</li>
+</ol>
+
+<h3>Masukan</h3>
+
+<p>
+  Masukan diberikan dalam format berikut:
+</p>
+
+<pre>
+N K Q
+P<sub>2</sub> P<sub>3</sub> &hellip; P<sub>N</sub>
+</pre>
+
+<h3>Keluaran</h3>
+
+<p>
+  Apabila tidak ada cara pembagian boks yang memenuhi, keluarkan satu baris berisi <code>TIDAK</code>.
+</p>
+<p>
+  Apabila terdapat cara yang memenuhi, maka keluarkan satu baris berisi <code>YA</code>.
+  Jika $Q = 1$, keluarkan satu baris lagi berisi permutasi dari $[1, 2, \ldots, N]$ yang menyatakan cara pembagian boks yang memenuhi, dengan bilangan ke-$i$ pada permutasinya menyatakan banyaknya lapis talas pada boks yang <b>awalnya</b> dibagikan ke kelinci $i$.
+  Jika ada lebih dari satu permutasi yang memenuhi, Anda bisa mengeluarkan yang mana saja.
+</p>
+
+<h3>Contoh Masukan 1</h3>
+
+<pre>
+5 3 1
+1 1 2 2
+</pre>
+
+<h3>Contoh Keluaran 1</h3>
+
+<pre>
+YA
+4 5 2 1 3
+</pre>
+
+<h3>Penjelasan Contoh 1</h3>
+
+<p>
+  Berikut adalah ilustrasi struktur keturunan $N$ kelincinya.
+</p>
+<p>
+  Jika Pak Dengklek membagi boks-boksnya sehingga banyaknya lapis talas pada boks masing-masing kelinci adalah $[4, 5, 2, 1, 3]$, maka hal-hal berikut akan terjadi:
+</p>
+<ol>
+  <li>
+    Awalnya, banyaknya lapis talas pada boks masing-masing kelinci adalah $[4, 5, 2, 1, 3]$.
+    Kelinci $1$ dan $2$ sedih.
+    Kelinci termuda di antaranya adalah kelinci $2$, maka kelinci $2$ menukarkan boksnya dengan boks kelinci $4$.
+    <p>
+      <img src="render/kelinci1.jpg" style="width: 400px; border-radius: 20px;">
+    </p>
+  </li>
+  <li>
+    Setelah itu, banyaknya lapis talas pada boks masing-masing kelinci adalah $[4, 1, 2, 5, 3]$.
+    Kelinci $1$ sedih.
+    Maka kelinci $1$ menukarkan boksnya dengan boks kelinci $2$.
+    <p>
+      <img src="render/kelinci2.jpg" style="width: 400px; border-radius: 20px;">
+    </p>
+  </li>
+  <li>
+    Setelah itu, banyaknya lapis talas pada boks masing-masing kelinci adalah $[1, 4, 2, 5, 3]$.
+    Kelinci $2$ sedih.
+    Maka kelinci $2$ menukarkan boksnya dengan boks kelinci $5$.
+    <p>
+      <img src="render/kelinci3.jpg" style="width: 400px; border-radius: 20px;">
+    </p>
+  </li>
+  <li>
+    Setelah itu, banyaknya lapis talas pada boks masing-masing kelinci adalah $[1, 3, 2, 5, 4]$.
+    Tidak ada kelinci yang sedih.
+    <p>
+      <img src="render/kelinci4.jpg" style="width: 400px; border-radius: 20px;">
+    </p>
+  </li>
+</ol>
+<p>
+  Totalnya, terjadi tepat $3$ penukaran.
+</p>
+
+<h3>Contoh Masukan 2</h3>
+
+<pre>
+5 3 0
+1 1 2 2
+</pre>
+
+<h3>Contoh Keluaran 2</h3>
+<pre>
+YA
+</pre>
+
+<h3>Penjelasan Contoh 2</h3>
+
+<p>
+  Contoh ini mirip dengan contoh pertama, sehingga terdapat cara pembagian boks yang memenuhi.
+  Namun, karena $Q = 0$ di sini, Anda tidak perlu mengeluarkan permutasinya.
+</p>
+
+<h3>Contoh Masukan 3</h3>
+
+<pre>
+8 265 1
+1 2 1 3 4 2 1
+</pre>
+
+<h3>Contoh Keluaran 3</h3>
+
+<pre>
+TIDAK
+</pre>
+
+<h3>Penjelasan Contoh 3</h3>
+
+<p>
+  Tidak ada cara pembagian boks yang memenuhi.
+</p>

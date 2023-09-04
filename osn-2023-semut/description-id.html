@@ -1,0 +1,176 @@
+<!-- Title: Semut Kesepian -->
+
+<h3>Deskripsi</h3>
+
+<p>
+  Pak Dengklek menemukan sebuah sarang semut di bawah tanah.
+  Sarangnya terdiri dari $N$ ruangan yang dinomori dari $1$ sampai $N$ dengan setiap ruangan berisi seekor semut.
+  Terdapat $M$ terowongan yang dinomori dari $1$ sampai $M$ dengan terowongan ke-$i$ menghubungkan ruangan $U_i$ dan $V_i$.
+</p>
+<p>
+  Semut merupakan serangga sosial yang suka bergotong-royong.
+  Seekor semut dikatakan <b>kesepian</b> jika dan hanya jika semut itu tidak bisa menjangkau $2$ atau lebih <b>semut lain</b> (semut selain dirinya sendiri) dari ruangannya melalui satu atau lebih terowongan yang ada.
+</p>
+<p>
+  Pak Dengklek akan memilih pasangan bilangan bulat $(l, r)$ yang memenuhi $1 \leq l \leq r \leq N$.
+  Kemudian, Pak Dengklek akan menghancurkan setiap ruangan $x$ yang memenuhi $x &lt; l$ atau $x &gt; r$ dan menyingkirkan setiap semut pada ruangan-ruangan itu.
+  Tentunya, terowongan-terowongan yang terhubung dengan ruangan yang dihancurkan juga ikut dihancurkan.
+</p>
+<p>
+  Pak Dengklek khawatir dengan semut-semutnya, sehingga untuk suatu pasangan $(l, r)$, Pak Dengklek mendefinisikan <b>nilai kesepian</b> $f(l, r)$ sebagai banyaknya semut tersisa yang kesepian setelah penghancuran ruangan.
+</p>
+<p>
+  Pak Dengklek bosan dan ingin mencari jumlah nilai kesepian $f(l, r)$ untuk semua pasangan $(l, r)$ yang memenuhi $1 \leq l \leq r \leq N$.
+  Bantulah Pak Dengklek!
+</p>
+
+<h3>Batasan</h3>
+
+<ul>
+  <li>$1 \leq N \leq 100\,000$</li>
+  <li>$0 \leq M \leq 200\,000$</li>
+  <li>$1 \leq U_i &lt; V_i \leq N$</li>
+  <li>$U_i \neq U_j$ atau $V_i \neq V_j$ untuk $i \neq j$</li>
+</ul>
+
+<h3>Subsoal</h3>
+
+<ol>
+  <li>
+    &nbsp;&nbsp;(6 poin) Hanya berisi kasus uji berikut:<br/>
+    $N = 4$; $M = 4$;<br/>
+    $U = [2, 3, 1, 1]$;<br/>
+    $V = [4, 4, 3, 4]$
+  </li>
+  <li>(12 poin) $N \leq 50$; $M \leq 100$</li>
+  <li>&nbsp;&nbsp;(6 poin) $N \leq 300$; $M \leq 600$</li>
+  <li>(11 poin) $N \leq 2000$; $M \leq 4000$</li>
+  <li>&nbsp;&nbsp;(7 poin) Sebelum penghancuran ruangan, semua semut kesepian.</li>
+  <li>&nbsp;&nbsp;(9 poin) Sebelum penghancuran ruangan, paling banyak ada $3$ semut yang tidak kesepian.</li>
+  <li>&nbsp;&nbsp;(8 poin) Sebelum penghancuran ruangan, setiap semut hanya bisa menjangkau paling banyak $2$ semut lain melalui satu atau lebih terowongan.</li>
+  <li>(18 poin) Sebelum penghancuran ruangan, setiap ruangan terhubung secara langsung dengan paling banyak $1$ ruangan lain dengan indeks lebih kecil dan $1$ ruangan lain dengan indeks lebih besar.</li>
+  <li>(11 poin) Sebelum penghancuran ruangan, setiap ruangan terhubung secara langsung dengan paling banyak $40$ terowongan.</li>
+  <li>(12 poin) Tidak ada batasan tambahan.</li>
+</ol>  
+
+<h3>Masukan</h3>
+
+<p>
+  Masukan diberikan dalam format berikut:
+</p>
+<pre>
+N M
+U<sub>1</sub> V<sub>1</sub>
+U<sub>2</sub> V<sub>2</sub>
+⋮
+U<sub>M</sub> V<sub>M</sub>
+</pre>
+
+<h3>Keluaran</h3>
+
+<p>
+  Keluarkan sebuah baris berisi sebuah bilangan bulat yang menyatakan jumlah nilai kesepian $f(l, r)$ untuk semua pasangan $(l, r)$ yang memenuhi $1 \leq l \leq r \leq N$.
+</p>
+
+<h3>Contoh Masukan 1</h3>
+
+<pre>
+11 14
+1 5
+1 8
+2 4
+2 5
+2 10
+3 6
+3 7
+4 8
+4 9
+5 10
+8 9
+8 11
+9 11
+10 11
+</pre>
+
+<h3>Contoh Keluaran 1</h3>
+
+<pre>
+128
+</pre>
+
+<h3>Penjelasan Contoh 1</h3>
+
+<p>
+  Berikut adalah bentuk keseluruhan sarang semut.
+</p>
+<p>
+  <img src="render/semut00.png" style="width: 200px;">
+</p>
+<p>
+  Sebagai contoh, untuk $(l, r) = (4, 10)$, berikut adalah bentuk sarang semut yang tersisa.
+</p>
+<p>
+  <img src="render/semut01.png" style="width: 200px;">
+</p>
+<p>
+  Bisa dilihat bahwa:
+</p>
+<ul>
+  <li>Semut pada ruangan $4$ bisa menjangkau semut pada ruangan $8$ dan $9$.</li>
+  <li>Semut pada ruangan $5$ bisa menjangkau semut pada ruangan $10$.</li>
+  <li>Semut pada ruangan $6$ tidak bisa menjangkau semut lain mana pun.</li>
+  <li>Semut pada ruangan $7$ tidak bisa menjangkau semut lain mana pun.</li>
+  <li>Semut pada ruangan $8$ bisa menjangkau semut pada ruangan $4$ dan $9$.</li>
+  <li>Semut pada ruangan $9$ bisa menjangkau semut pada ruangan $4$ dan $8$.</li>
+  <li>Semut pada ruangan $10$ bisa menjangkau semut pada ruangan $5$.</li>
+</ul>
+<p>
+  Semut yang kesepian adalah semut pada ruangan $5$, $6$, $7$, dan $10$.
+  Oleh karena itu, $f(4, 10) = 4$.
+</p>
+<p>
+  Sebagai contoh lain, untuk $(l, r) = (8, 11)$, berikut adalah bentuk sarang semut yang tersisa.
+</p>
+<p>
+  <img src="render/semut02.png" style="width: 200px;">
+</p>
+<p>
+  Bisa dilihat bahwa masing-masing semut yang tersisa bisa menjangkau $3$ semut lain, maka tidak ada semut yang kesepian.
+  Oleh karena itu, $f(8, 11) = 0$.
+</p>
+
+<h3>Contoh Masukan 2</h3>
+
+<pre>
+4 3
+2 4
+1 2
+2 3
+</pre>
+
+<h3>Contoh Keluaran 2</h3>
+
+<pre>
+10
+</pre>
+
+<h3>Penjelasan Contoh 2</h3>
+
+<p>
+  Semua nilai $f(l, r)$ adalah sebagai berikut:
+</p>
+<ul>
+  <li>$f(1, 1) = 1$</li>
+  <li>$f(1, 2) = 2$</li>
+  <li>$f(1, 3) = 0$</li>
+  <li>$f(1, 4) = 0$</li>
+  <li>$f(2, 2) = 1$</li>
+  <li>$f(2, 3) = 2$</li>
+  <li>$f(2, 4) = 0$</li>
+  <li>$f(3, 3) = 1$</li>
+  <li>$f(3, 4) = 2$</li>
+  <li>$f(4, 4) = 1$</li>
+</ul>
+<p>
+  Oleh karena itu, jumlahnya adalah $1+2+0+0+1+2+0+1+2+1 = 10$.
+</p>

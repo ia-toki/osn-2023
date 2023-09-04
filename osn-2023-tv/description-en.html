@@ -1,0 +1,130 @@
+<!-- Title: Television Flickers -->
+
+<h3>Description</h3>
+
+<p>
+  In June, Pak Dengklek and his family go on holiday to the city of Bogor.
+  One day during their holiday, they visit the Binary Square Mall and come across a television attraction that catches their attention.
+</p>
+<p>
+  The attraction is displayed on a set of televisions that are arranged in the form of a square of size $N \times N$ with $N$ rows (numbered from $1$ to $N$) and $N$ columns (numbered from $1$ to $N$).
+  The television located in the $r$-th row and the $c$-th column is denoted as television $(r, c)$.
+  Each television can only be either turned on or turned off.
+  Initially, each television is turned off.
+</p>
+<p>
+  There are $P$ changes that will happen.
+  The $i$-th change is in the form of two integers $T_i$ and $W_i$.
+</p>
+<ul>
+  <li>If $T_i = 1$, then every television $(r, c)$ that satisfies $r \leq W_i$ and $c \leq W_i$ changes state.</li>
+  <li>If $T_i = 2$, then every television $(r, c)$ that satisfies $r \geq W_i$ and $c \geq W_i$ changes state.</li>
+</ul>
+<p>
+  When a television that is turned on changes state, then it becomes turned off.
+  On the other hand, when a television that is turned off changes state, then it becomes turned on.
+</p>
+<p>
+  After all $P$ changes happen, Pak Dengklek has $Q$ questions.
+  The $j$-th question asks about whether television $(X_j, Y_j)$ is turned on or turned off.
+  Help Pak Dengklek answer all of his questions!
+</p>
+
+<h3>Constraints</h3>
+
+<ul>
+  <li>$1 \leq N \leq 10^9$</li>
+  <li>$1 \leq P \leq 200\,000$</li>
+  <li>$T_i = 1$ or $T_i = 2$</li>
+  <li>$1 \leq W_i \leq N$</li>
+  <li>$1 \leq Q \leq 200\,000$</li>
+  <li>$1 \leq X_j, Y_j \leq N$</li>
+</ul>
+
+<h3>Subtasks</h3>
+
+<ol>
+  <li>
+    &nbsp;&nbsp;(6 points) Contains only the following test case:<br/>
+    $N = 7$; $P = 4$;<br/>
+    $T = [2, 1, 1, 2]$;<br/>
+    $W = [4, 6, 4, 3]$;<br/>
+    $Q = 5$;<br/>
+    $X = [2, 3, 6, 4, 3]$;<br/>
+    $Y = [6, 2, 3, 4, 7]$
+  </li>
+  <li>&nbsp;&nbsp;(5 points) If $T_i = 1$, then $W_i = N$; if $T_i = 2$, then $W_i = 1$.</li>
+  <li>&nbsp;&nbsp;(8 points) $N, P, Q \leq 200$</li>
+  <li>(10 points) $N, P, Q \leq 2000$</li>
+  <li>&nbsp;&nbsp;(7 points) $P = 1$</li>
+  <li>(11 points) $P = 2$; $T_1 = 1$; $T_2 = 2$; $W_1 = W_2$</li>
+  <li>(15 points) $N \leq 200\ 000$; $T_i = 1$</li>
+  <li>(13 points) $N \leq 200\ 000$; $X_j = Y_j$</li>
+  <li>(10 points) $N \leq 200\ 000$</li>
+  <li>(15 points) No additional constraints.</li>
+</ol>
+
+<h3>Input</h3>
+
+<p>
+  The input is given with the following format:
+</p>
+
+<pre>
+N P
+T<sub>1</sub> W<sub>1</sub>
+T<sub>2</sub> W<sub>2</sub>
+⋮
+T<sub>P</sub> W<sub>P</sub>
+Q
+X<sub>1</sub> Y<sub>1</sub>
+X<sub>2</sub> Y<sub>2</sub>
+⋮
+X<sub>Q</sub> Y<sub>Q</sub>
+</pre>
+
+<h3>Output</h3>
+
+<p>
+  For each question, output a single line containing <code>0</code> if the television being asked is turned off, or <code>1</code> if the television being asked is turned on.
+</p>
+
+<h3>Sample Input</h3>
+
+<pre>
+7 5
+1 2
+2 5
+1 1
+1 6
+2 1
+4
+1 1
+6 5
+2 7
+4 3
+</pre>
+
+<h3>Sample Output</h3>
+
+<pre>
+0
+1
+1
+0
+</pre>
+
+<h3>Explanation of Sample</h3>
+
+<p>
+  The following is an illustration for the sequence of changes that occur.
+</p>
+<p>
+  <img src="render/tvs.png" style="width: 100%;">
+</p>
+<p>
+  The following are the positions of the televisions being asked.
+</p>
+<p>
+  <img src="render/tvquery.png" style="width: 300px;">
+</p>

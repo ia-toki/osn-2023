@@ -1,0 +1,178 @@
+<!-- Title: Sharing Lapis Talas -->
+
+<h3>Description</h3>
+
+<p>
+  When visiting Taman Safari Bogor, Pak Dengklek finds $N$ immortal bunnies from an alien planet that are indexed from $1$ to $N$ from <b>oldest to youngest</b>.
+  Uniquely, this bunny species reproduces without a partner, so each of these bunnies only has a single parent.
+  To be specific, for each $2 \leq i \leq N$, bunny $i$ is the child of bunny $P_i$, where $1 \leq P_i \leq i - 1$.
+</p>
+<p>
+  Pak Dengklek plans to give away Bogor's local food, the lapis talas cake, as gifts for the bunnies.
+  Pak Dengklek has prepared $N$ boxes, numbered from $1$ to $N$.
+  The $j$-th box contains exactly $j$ slices of lapis talas.
+  Initially, Pak Dengklek distributes the $N$ boxes such that each bunny receives one box.
+</p>
+<p>
+  Pak Dengklek knows that this bunny species is smart, enjoys sharing, and truly loves its descendants.
+  A bunny is considered <b>sad</b> if and only if at least one of its children receives a box containing fewer slices of lapis talas.
+</p>
+<p>
+  Each second, if there is at least one sad bunny, then among the sad bunnies, the <b>youngest</b> bunny (the bunny with the <b>biggest index</b>) will swap its box with the box of its child that contains the <b>fewest</b> slices of lapis talas.
+  This swapping process is done repeatedly until there are no sad bunnies.
+</p>
+<p>
+  Of course you are curious, is it possible for Pak Dengklek to distribute the $N$ boxes such that there will be <b>exactly $K$</b> swaps?
+</p>
+<p>
+  Given an integer $Q$.
+  If $Q = 0$, you only need to report whether it is possible to satisfy the problem condition.
+  If $Q = 1$, you must also report one possible way of distributing the boxes.
+</p>
+
+<h3>Constraints</h3>
+
+<ul>
+  <li>$1 \leq N \leq 100\,000$</li>
+  <li>$0 \leq K \leq 10^{18}$</li>
+  <li>$Q = 0$ or $Q = 1$</li>
+  <li>$1 \leq P_i \leq i - 1$</li>
+</ul>
+
+<h3>Subtasks</h3>
+
+<ol>
+  <li>
+    &nbsp;&nbsp;(7 points) Contains only the following test case:<br/>
+    $N = 7$; $K = 7$; $Q = 1$;<br/>
+    The parents of bunnies $2$, $3$, $4$, $5$, $6$, $7$ are bunnies $1$, $1$, $3$, $2$, $5$, $2$ respectively.
+  </li>
+  <li>&nbsp;&nbsp;(7 points) $K = 0$</li>
+  <li>&nbsp;&nbsp;(6 points) $N \leq 8$</li>
+  <li>&nbsp;&nbsp;(6 points) $Q = 0$; $P_i = i - 1$</li>
+  <li>&nbsp;&nbsp;(8 points) $Q = 0$; there is exactly one index $x$ such that $P_x &lt; x - 1$, and $P_i = i - 1$ for each $i \neq x$.</li>
+  <li>&nbsp;&nbsp;(9 points) $Q = 0$</li>
+  <li>(11 points) $K \leq 100\,000$; $P_i = i - 1$</li>
+  <li>(12 points) $P_i = i - 1$</li>
+  <li>(17 points) $K \leq 100\,000$</li>
+  <li>(17 points) No additional constraints.</li>
+</ol>
+
+<h3>Input</h3>
+
+<p>
+  The input is given with the following format:
+</p>
+
+<pre>
+N K Q
+P<sub>2</sub> P<sub>3</sub> &hellip; P<sub>N</sub>
+</pre>
+
+<h3>Output</h3>
+
+<p>
+  If there is no way to distribute the boxes that satisfies, output a single line containing <code>TIDAK</code> (means no).
+</p>
+<p>
+  If there is a way that satisfies, then output a line containing <code>YA</code> (means yes).
+  If $Q = 1$, output another line containing a permutation of $[1, 2, \ldots, N]$ which represents a way to distribute the boxes that satisfies, where the $i$-th number in the permutation repesents the number of lapis talas slices in the box <b>initially</b> distributed to the $i$-th bunny.
+  If there are more than one permutations that satisfy, you can output any of them.
+</p>
+
+<h3>Sample Input 1</h3>
+
+<pre>
+5 3 1
+1 1 2 2
+</pre>
+
+<h3>Sample Output 1</h3>
+
+<pre>
+YA
+4 5 2 1 3
+</pre>
+
+<h3>Explanation of Sample 1</h3>
+
+<p>
+  The following is an illustration for the ancestry structure of the $N$ bunnies.
+</p>
+<p>
+  If Pak Dengklek distributes the boxes such that the number of lapis talas slices in the box of each bunny is $[4, 5, 2, 1, 3]$, then the following events will happen:
+</p>
+<ol>
+  <li>
+    Initially, the number of lapis talas slices in the box of each bunny is $[4, 5, 2, 1, 3]$.
+    Bunnies $1$ and $2$ are sad.
+    The youngest bunny among them is bunny $2$, so bunny $2$ swaps its box with bunny $4$.
+    <p>
+      <img src="render/kelinci1-en.jpg" style="width: 400px; border-radius: 20px;">
+    </p>
+  </li>
+  <li>
+    Afterwards, the number of lapis talas slices in the box of each bunny is $[4, 1, 2, 5, 3]$.
+    Bunny $1$ is sad.
+    So bunny $1$ swaps its box with bunny $2$.
+    <p>
+      <img src="render/kelinci2-en.jpg" style="width: 400px; border-radius: 20px;">
+    </p>
+  </li>
+  <li>
+    Afterwards, the number of lapis talas slices in the box of each bunny is $[1, 4, 2, 5, 3]$.
+    Bunny $2$ is sad.
+    So bunny $2$ swaps its box with bunny $5$.
+    <p>
+      <img src="render/kelinci3-en.jpg" style="width: 400px; border-radius: 20px;">
+    </p>
+  </li>
+  <li>
+    Afterwards, the number of lapis talas slices in the box of each bunny is $[1, 3, 2, 5, 4]$.
+    There are no sad bunnies.
+    <p>
+      <img src="render/kelinci4-en.jpg" style="width: 400px; border-radius: 20px;">
+    </p>
+  </li>
+</ol>
+<p>
+  In total, there are exactly $3$ swaps.
+</p>
+
+<h3>Sample Input 2</h3>
+
+<pre>
+5 3 0
+1 1 2 2
+</pre>
+
+<h3>Sample Output 2</h3>
+<pre>
+YA
+</pre>
+
+<h3>Explanation of Sample 2</h3>
+
+<p>
+  This sample is similar to the first sample, so there is a way to distribute the boxes that satisfies.
+  However, since $Q = 0$ here, you do not have to output the permutation.
+</p>
+
+<h3>Sample Input 3</h3>
+
+<pre>
+8 265 1
+1 2 1 3 4 2 1
+</pre>
+
+<h3>Sample Output 3</h3>
+
+<pre>
+TIDAK
+</pre>
+
+<h3>Explanation of Sample 3</h3>
+
+<p>
+  There is no way to distribute the boxes that satisfies.
+</p>
