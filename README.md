@@ -1,13 +1,36 @@
 # OSN 2023 Problem Repository
 
-## Problem slugs
+Problem repository of **OSN 2023** (also known internationally as
+**TOKI Indonesian NOI Open Contest 2023**).
 
-* `osn-2023-pertahanan`
-* `osn-2023-semut`
-* `osn-2023-hujan`
-* `osn-2023-tv`
-* `osn-2023-talas`
-* `osn-2023-pengiriman`
+## Problems
+
+| Alias | Slug                  | Title (id)           | Title (en)          | Type  |
+| ----- | --------------------- | -------------------- | ------------------- | ----- |
+| 1A    | `osn-2023-pertahanan` | Pertahanan Bogor     | Bogor Defence       | batch |
+| 1B    | `osn-2023-semut`      | Semut Kesepian       | Lonely Ants         | batch |
+| 1C    | `osn-2023-hujan`      | Kota Hujan           | Rain City           | batch |
+| 2A    | `osn-2023-tv`         | Kelap-Kelip Televisi | Television Flickers | batch |
+| 2B    | `osn-2023-talas`      | Berbagi Lapis Talas  | Sharing Lapis Talas | batch |
+| 2C    | `osn-2023-pengiriman` | Pengiriman Satu Hari | One-Day Delivery    | batch |
+
+## Credits
+
+| Slug                  | Problem Author(s)                         |
+| --------------------- | ----------------------------------------- |
+| `osn-2023-pertahanan` | Pikatan Arya Bramajati                    |
+| `osn-2023-semut`      | Pikatan Arya Bramajati                    |
+| `osn-2023-hujan`      | Maximilliano Utomo Quok                   |
+| `osn-2023-tv`         | Prabowo Djonatan                          |
+| `osn-2023-talas`      | Muhammad Ayaz Dzulfikar, Prabowo Djonatan |
+| `osn-2023-pengiriman` | Rama Aryasuta Pangestu                    |
+
+## Upsolving
+
+The problem statements and upsolving are available
+[on TLX](https://tlx.toki.id/problems/osn-2023).
+
+The editorial can also be found on the same link
 
 ## Problem Structure Repository
 
@@ -45,7 +68,7 @@ Solutions that are used for the purpose of testing the subtasks.
 
 ### Test case generator
 
-Test case generator using [tcframe](http://tcframe.toki.id/en/stable/) v1.6.0.
+Test case generator using [tcframe](http://tcframe.toki.id/en/stable/) 1.6.0.
 
 ### Configuration file
 
@@ -79,3 +102,8 @@ For communication in interactive problem using [tcframe format](https://tcframe.
 ### Output validator
 
 To validate solutions which do not use exact match (may contain multiple solutions or require precision handling) using [tcframe format](https://tcframe.toki.id/en/stable/topic-guides/styles.html#scorer).
+
+## License
+
+All tasks and materials are published under the [Creative Commons Attribution
+(CC-BY)](https://github.com/ia-toki/osn-2023/blob/master/LICENSE) License.
